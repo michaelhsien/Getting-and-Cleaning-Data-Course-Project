@@ -36,12 +36,19 @@ The following files are available for the train and test data. Their description
 
 - 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
-- 'train/Inertial Signals/total_acc_x_train.txt': The acceleration signal from the smartphone accelerometer X axis in standard gravity units 'g'. Every row shows a 128 element vector. The same description applies for the 'total_acc_x_train.txt' and 'total_acc_z_train.txt' files for the Y and Z axis. 
+# Creating the cleaned dataset
+First Test and train data were loaded separately. Headers for the X_test were taken from features.txt
 
-- 'train/Inertial Signals/body_acc_x_train.txt': The body acceleration signal obtained by subtracting the gravity from the total acceleration. 
+Using those headers we were able to filter for only mean() and std() values.
 
-- 'train/Inertial Signals/body_gyro_x_train.txt': The angular velocity vector measured by the gyroscope for each window sample. The units are radians/second. 
+Next, test and train data sets were merged into one.
 
+An aggregation was performed the combined data frame, grouping by SubjectID and Activity.
+
+SubjectID and Activity were then properly named and in addition using the activity labels we switched from using numeric to 
+the actual activity name(WALKING instead of 1)
+
+When the script is executed it will output the dataset to a text file (named tidyset.txt) in the users current working directory.
 
 
 # Variables in cleaned dataset
